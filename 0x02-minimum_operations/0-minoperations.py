@@ -34,4 +34,3 @@ def minOperations(n):
             # print('-(01)->{}'.format('H' * done), end='')
     # print('')
     return ops_count
-
