@@ -1,36 +1,29 @@
-
 #!/usr/bin/python3
-'''Coding challenge.
-'''
+
+"""
+    Method tht determis number of minmm operatins give n characters
+"""
 
 
 def minOperations(n):
-    '''Computes the fewest number of operations needed to result
-    in exactly n H characters.
-    '''
-    if not isinstance(n, int):
-        return 0
-    ops_count = 0
-    clipboard = 0
-    done = 1
-    # print('H', end='')
-    while done < n:
-        if clipboard == 0:
-            # init (the first copy all and paste)
-            clipboard = done
-            done += clipboard
-            ops_count += 2
-            # print('-(11)->{}'.format('H' * done), end='')
-        elif n - done > 0 and (n - done) % done == 0:
-            # copy all and paste
-            clipboard = done
-            done += clipboard
-            ops_count += 2
-            # print('-(11)->{}'.format('H' * done), end='')
-        elif clipboard > 0:
-            # paste
-            done += clipboard
-            ops_count += 1
-            # print('-(01)->{}'.format('H' * done), end='')
-    # print('')
-    return ops_count
+    """
+        function that calclates fewest number of opertions
+        neede giv result of exacty n charaters in a file
+        args: n: Number of character to be displayed
+        return:
+               number min operations
+    """
+
+    now = 1
+    start = 0
+    counter = 0
+    while now < n:
+        remainder = n - now
+        if (remainder % now == 0):
+            start = now
+            now += start
+            counter += 2
+        else:
+            now += start
+            counter += 1
+    return counter
